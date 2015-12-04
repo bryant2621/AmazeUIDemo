@@ -113,6 +113,7 @@
     <Content Include="Script\js\handlebars.min.js" />
     <Content Include="Script\js\jquery.min.js" />
     <Content Include="Script\ui.js" />
+    <Content Include="TestPage.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
