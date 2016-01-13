@@ -12,10 +12,14 @@ namespace AmazeDemo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RedisClient client = new RedisClient("192.168.91.128", 6379);
-            client.Set<string>("username", "bryant");
-            var username = client.Get<string>("username");
-            Response.Write(username);
+            var dbManager = DBBase.CreateManager();
+            using (IRedisClient client = dbManager.GetClient())
+            {
+                client.Set<string>("username", "bryant");
+                var username = client.Get<string>("username");
+                Response.Write(username);
+            }
+
         }
     }
 }

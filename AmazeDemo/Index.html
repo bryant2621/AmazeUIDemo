@@ -5,22 +5,25 @@
     <title></title>
     <meta charset="utf-8" />
     <script src="Script/ui.js"></script>
+    <script src="Script/Common.js"></script>
     <script type="text/javascript">
         function test() {
-            $.get('Service.aspx', function (data) {
-                alert(data);
-            });
+            //alert(titleArray);
+            var json = [{ "beds": [{ "bedId": 1, "bedIndex": 1, "opId": 0, "opName": "", "status": 0 }, { "bedId": 2, "bedIndex": 2, "opId": 0, "opName": "", "status": 1 }, { "bedId": 3, "bedIndex": 3, "opId": 0, "opName": "", "status": 2 }, { "bedId": 4, "bedIndex": 4, "opId": 0, "opName": "", "status": 3 }, { "bedId": 5, "bedIndex": 5, "opId": 0, "opName": "", "status": 4 }, { "bedId": 6, "bedIndex": 6, "opId": 0, "opName": "", "status": 0 }], "floorName": "一层", "houseName": "哈哈楼", "roomName": "测试房间", "roomNum": "六人间", "roomType": "朝北" }, { "beds": [{ "bedId": 7, "bedIndex": 1, "opId": 0, "opName": "", "status": 0 }], "floorName": "二层", "houseName": "哈哈楼", "roomName": "1101号房", "roomNum": "单人间", "roomType": "朝东" }]
+            //alert($('#table1 tbody').html());
+            Json2Table("table1", json);
         }
     </script>
 </head>
 <body>
-    <button value="test" onclick="test()"></button>
-    <table class="am-table am-table-striped am-table-hover">
+
+    <button type="button" class="am-btn am-btn-primary am-btn-block" onclick="test()">默认样式</button>
+    <table id="table1" class="am-table am-table-striped am-table-hover">
         <thead>
             <tr>
-                <th>网站名称</th>
-                <th>网址</th>
-                <th>创建时间</th>
+                <th binding="floorName">楼层名</th>
+                <th binding="roomName">房间名</th>
+                <th binding="roomNum">房间人数</th>
             </tr>
         </thead>
         <tbody>
