@@ -1,58 +1,240 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <meta charset="utf-8" />
-    <script src="Script/ui.js"></script>
-    <script src="Script/Common.js"></script>
-    <script type="text/javascript">
-        function test() {
-            //alert(titleArray);
-            var json = [{ "beds": [{ "bedId": 1, "bedIndex": 1, "opId": 0, "opName": "", "status": 0 }, { "bedId": 2, "bedIndex": 2, "opId": 0, "opName": "", "status": 1 }, { "bedId": 3, "bedIndex": 3, "opId": 0, "opName": "", "status": 2 }, { "bedId": 4, "bedIndex": 4, "opId": 0, "opName": "", "status": 3 }, { "bedId": 5, "bedIndex": 5, "opId": 0, "opName": "", "status": 4 }, { "bedId": 6, "bedIndex": 6, "opId": 0, "opName": "", "status": 0 }], "floorName": "一层", "houseName": "哈哈楼", "roomName": "测试房间", "roomNum": "六人间", "roomType": "朝北" }, { "beds": [{ "bedId": 7, "bedIndex": 1, "opId": 0, "opName": "", "status": 0 }], "floorName": "二层", "houseName": "哈哈楼", "roomName": "1101号房", "roomNum": "单人间", "roomType": "朝东" }]
-            //alert($('#table1 tbody').html());
-            Json2Table("table1", json);
-        }
-    </script>
-</head>
-<body>
+<html class="fixed-layout">
 
-    <button type="button" class="am-btn am-btn-primary am-btn-block" onclick="test()">默认样式</button>
-    <table id="table1" class="am-table am-table-striped am-table-hover">
-        <thead>
-            <tr>
-                <th binding="floorName">楼层名</th>
-                <th binding="roomName">房间名</th>
-                <th binding="roomNum">房间人数</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Amaze UI</td>
-                <td>http://amazeui.org</td>
-                <td>2012-10-01</td>
-            </tr>
-            <tr>
-                <td>Amaze UI</td>
-                <td>http://amazeui.org</td>
-                <td>2012-10-01</td>
-            </tr>
-            <tr>
-                <td>Amaze UI</td>
-                <td>http://amazeui.org</td>
-                <td>2012-10-01</td>
-            </tr>
-            <tr>
-                <td>Amaze UI</td>
-                <td>http://amazeui.org</td>
-                <td>2012-10-01</td>
-            </tr>
-            <tr>
-                <td>Amaze UI</td>
-                <td>http://amazeui.org</td>
-                <td>2012-10-01</td>
-            </tr>
-        </tbody>
-    </table>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<meta charset="utf-8" />
+		<script src="Script/ui.js"></script>
+		<script src="Script/Common.js"></script>
+		<script type="text/javascript">
+			function test() {
+				//alert(titleArray);
+				var json = [{
+						"beds": [{
+							"bedId": 1,
+							"bedIndex": 1,
+							"opId": 0,
+							"opName": "",
+							"status": 0
+						}, {
+							"bedId": 2,
+							"bedIndex": 2,
+							"opId": 0,
+							"opName": "",
+							"status": 1
+						}, {
+							"bedId": 3,
+							"bedIndex": 3,
+							"opId": 0,
+							"opName": "",
+							"status": 2
+						}, {
+							"bedId": 4,
+							"bedIndex": 4,
+							"opId": 0,
+							"opName": "",
+							"status": 3
+						}, {
+							"bedId": 5,
+							"bedIndex": 5,
+							"opId": 0,
+							"opName": "",
+							"status": 4
+						}, {
+							"bedId": 6,
+							"bedIndex": 6,
+							"opId": 0,
+							"opName": "",
+							"status": 0
+						}],
+						"floorName": "一层",
+						"houseName": "哈哈楼",
+						"roomName": "测试房间",
+						"roomNum": "六人间",
+						"roomType": "朝北"
+					}, {
+						"beds": [{
+							"bedId": 7,
+							"bedIndex": 1,
+							"opId": 0,
+							"opName": "",
+							"status": 0
+						}],
+						"floorName": "二层",
+						"houseName": "哈哈楼",
+						"roomName": "1101号房",
+						"roomNum": "单人间",
+						"roomType": "朝东"
+					}]
+					//alert($('#table1 tbody').html());
+				Json2Table("table1", json);
+			}
+		</script>
+		<style>
+			.admin-sidebar {
+				display: block;
+				position: static;
+				background: none;
+			}
+			
+			.admin-sidebar-list {
+				margin-bottom: 0;
+			}
+			
+			.admin-sidebar {
+				width: 260px;
+				min-height: 100%;
+				float: left;
+				border-right: 1px solid #cecece;
+			}
+			
+			.admin-offcanvas-bar {
+				position: static;
+				width: auto;
+				background: none;
+				-webkit-transform: translate3d(0, 0, 0);
+				-ms-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			
+			.admin-header {
+				margin-bottom: 0;
+			}
+			
+			.admin-content {
+				width: auto;
+				overflow: hidden;
+				height: 100%;
+			}
+			
+			.fixed-layout,
+			.fixed-layout body {
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			.fixed-layout .admin-header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 1500;
+			}
+			
+			.fixed-layout .admin-main {
+				position: relative;
+				height: 100%;
+				padding-top: 51px;
+			}
+			
+			.fixed-layout .admin-content,
+			.fixed-layout .admin-sidebar {
+				height: 100%;
+				overflow-x: hidden;
+				overflow-y: scroll;
+				overflow-y: scroll;
+			}
+			
+			.fixed-layout .admin-sidebar.am-active {
+				z-index: 1600;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="am-topbar admin-header">
+			<h1 class="am-topbar-brand"><a href="#">口袋对战后台维护系统</a></h1>
+			<div class="am-collapse am-topbar-collapse">
+				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right">
+					<li class="am-dropdown" data-am-dropdown>
+						<a class="am-dropdown-toggle am-text-sm" data-am-dropdown-toggle href="javascript:;">
+							<span class="am-icon-users"></span> 管理员<span class="am-icon-caret-down"></span>
+						</a>
+						<ul class="am-dropdown-content">
+							<li><a href="#" class="am-text-sm"><span class="am-icon-user"></span> 资料</a></li>
+							<li><a href="#" class="am-text-sm"><span class="am-icon-cog"></span> 设置</a></li>
+							<li><a href="#" class="am-text-sm"><span class="am-icon-power-off"></span> 退出</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<div class="am-cf admin-main">
+			<div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+				<div class="am-offcanvas-bar admin-offcanvas-bar">
+					<ul class="am-list admin-sidebar-list">
+						<li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
+						<li class="admin-parent">
+							<a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+							<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+								<li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+								<li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
+								<li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
+								<li><a href="admin-log.html"><span class="am-icon-calendar"></span> 系统日志</a></li>
+								<li><a href="admin-404.html"><span class="am-icon-bug"></span> 404</a></li>
+							</ul>
+						</li>
+						<li><a href="admin-table.html"><span class="am-icon-table"></span> 表格</a></li>
+						<li><a href="admin-form.html"><span class="am-icon-pencil-square-o"></span> 表单</a></li>
+						<li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+					</ul>
+
+					<div class="am-panel am-panel-default admin-sidebar-panel">
+						<div class="am-panel-bd">
+							<p><span class="am-icon-bookmark"></span> 公告</p>
+							<p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
+						</div>
+					</div>
+
+					<div class="am-panel am-panel-default admin-sidebar-panel">
+						<div class="am-panel-bd">
+							<p><span class="am-icon-tag"></span> wiki</p>
+							<p>Welcome to the Amaze UI wiki!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="admin-content">
+				<button type="button" class="am-btn am-btn-primary am-btn-block" onclick="test()">默认样式</button>
+				<table id="table1" class="am-table am-table-striped am-table-hover">
+					<thead>
+						<tr>
+							<th binding="floorName">楼层名</th>
+							<th binding="roomName">房间名</th>
+							<th binding="roomNum">房间人数</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Amaze UI</td>
+							<td>http://amazeui.org</td>
+							<td>2012-10-01</td>
+						</tr>
+						<tr>
+							<td>Amaze UI</td>
+							<td>http://amazeui.org</td>
+							<td>2012-10-01</td>
+						</tr>
+						<tr>
+							<td>Amaze UI</td>
+							<td>http://amazeui.org</td>
+							<td>2012-10-01</td>
+						</tr>
+						<tr>
+							<td>Amaze UI</td>
+							<td>http://amazeui.org</td>
+							<td>2012-10-01</td>
+						</tr>
+						<tr>
+							<td>Amaze UI</td>
+							<td>http://amazeui.org</td>
+							<td>2012-10-01</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+
 </html>
